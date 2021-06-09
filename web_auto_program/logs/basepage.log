@@ -1,0 +1,8 @@
+[2021-06-09 11:17:43] [ERROR] [web_auto_program.common.logger] 找不到元素('id', 'account1')
+[2021-06-09 11:17:43] [ERROR] [web_auto_program.common.logger] 输入失败：tianqi
+[2021-06-09 11:17:50] [INFO] [web_auto_program.common.logger] 登录成功！
+[2021-06-09 11:46:17] [ERROR] [web_auto_program.common.logger] 找不到元素('id', 'account1')
+[2021-06-09 11:46:17] [ERROR] [web_auto_program.common.logger] 输入失败：tianqi
+[2021-06-09 11:46:23] [INFO] [web_auto_program.common.logger] 登录成功！
+[2021-06-09 11:48:42] [ERROR] [web_auto_program.common.logger] 找不到元素('id', 'account1')
+[2021-06-09 11:48:42] [ERROR] [web_auto_program.common.logger] 输入失败：tianqi
