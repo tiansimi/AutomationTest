@@ -3,8 +3,8 @@ import unittest
 from web_auto_program.common.filePath import path
 from web_auto_program.pages.logIn import Login
 from web_auto_program.common.logger import Logger
-import logging
-import HTMLTestRunner
+import time
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class ConbowLogin(unittest.TestCase):
@@ -16,20 +16,9 @@ class ConbowLogin(unittest.TestCase):
         self.conbowlogin.goto_loginPage()
         self.conbowlogin.login('tianqi', '123456')
         self.lg = Logger(path + '/logs/conbowlogin.log')
+        time.sleep(10)
+        self.assertIn('首页', self.driver.title, '登录失败')
 
-        # self.lg.info('登录成功！')
 
 
-if __name__ == "__main__":
-    casepath = path + '/testcase/conbow_login.py'
-    discover = unittest.defaultTestLoader.discover(start_dir=casepath,
-                                                   pattern='test*.py',
-                                                   top_level_dir=None)
-    # 报告路径地址
-    file_name = path + '/report/result.html'
 
-    fp = open(file_name, 'wb')
-    # 定义报告模板
-    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='测试报告', description='执行详情：')
-    runner.run(discover)
-    fp.close()

@@ -22,4 +22,5 @@ class Login(BasePage):
         self.send_keys(self.pass_word, psw)
         time.sleep(1)
         self.click(self.login_button)
-        time.sleep(5)
+
+
