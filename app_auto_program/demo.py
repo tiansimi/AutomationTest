@@ -1,8 +1,9 @@
 import time
-
+from selenium.webdriver.common.by import By
 from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support.wait import WebDriverWait  # 导入等待
+from selenium.webdriver.support import expected_conditions as EC
 
 desired_caps = {}
 desired_caps['platformName'] = 'Android'
@@ -16,7 +17,7 @@ desired_caps['udid'] = 'SJE0217329001578'
 # 连接Appium server
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 loc = (MobileBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("请输入手机号")')
-WebDriverWait(driver, 30).until()                # 等待页面元素出现
+WebDriverWait(driver, 30).until(EC.visibility_of_element_located(loc))                # 等待页面元素出现
 # print(desired_caps)
 # driver.find_element_by_id()
 # driver.find_element_by_class_name()
