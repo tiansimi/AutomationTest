@@ -17,7 +17,7 @@ desired_caps['udid'] = '2529c2e6'
 # 连接Appium server
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 loc = (MobileBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("请输入手机号")')
-WebDriverWait(driver, 30).until(EC.visibility_of_element_located(loc))                # 等待页面元素出现
+WebDriverWait(driver, 30).until(EC.visibility_of_element_located(loc))  # 等待页面元素出现
 # print(desired_caps)
 # driver.find_element_by_id()
 # driver.find_element_by_class_name()
@@ -27,4 +27,12 @@ WebDriverWait(driver, 30).until(EC.visibility_of_element_located(loc))          
 driver.find_element_by_android_uiautomator('new UiSelector().text("请输入手机号")').send_keys('17310520712')
 driver.find_element_by_android_uiautomator('new UiSelector().text("请输入4位验证码")').send_keys('9456')
 time.sleep(1)
-driver.find_element_by_android_uiautomator('new UiSelector().text("绑定手机并登录")').click()   # 点击登录按钮
+driver.find_element_by_android_uiautomator('new UiSelector().text("绑定手机并登录")').click()  # 点击登录按钮
+# 用xpath获取toast
+loc = '//*[contains(@text,"{}")]'.format("手机号码或者密码")
+# 等待的时候要用元素存在的条件，不能用元素可见的条件
+try:
+    WebDriverWait(driver, 10, 0.02).until(EC.presence_of_element_located((MobileBy.XPATH, loc)))
+    print(driver.find_element_by_xpath(loc).text)
+except:
+    print("没有找到匹配的toast！！！")

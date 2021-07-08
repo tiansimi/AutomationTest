@@ -14,6 +14,7 @@ desired_caps['appPackage'] = 'com.ijourney.conbow'
 desired_caps['appActivity'] = "com.ijourney.conbow.MainActivity"
 desired_caps['noReset'] = True
 desired_caps['udid'] = 'SJE0217329001578'
+desired_caps['automationName'] = 'UiAutomator2'
 
 # 连接Appium server
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
